@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-
-export default function App({ Component, pageProps }) {
+import { AppProps } from "next/app";
+export default function App({ Component }: AppProps) {
   //그래프큐엘 세팅
   const client = new ApolloClient({
     uri: "http://backend-example.codebootcamp.co.kr/graphql",
@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />
+      <Component />
     </ApolloProvider>
   );
 }
